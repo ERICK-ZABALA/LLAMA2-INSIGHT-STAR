@@ -1,5 +1,7 @@
 # LLAMA2-INSIGHT-STAR
 
+![image](https://github.com/ERICK-ZABALA/LLAMA2-INSIGHT-STAR/assets/38144008/20dbc007-252f-4a1b-aec9-231993b73047)
+
 # Configuración y Despliegue Automatizado en Google Colab
 
 Este repositorio contiene un script de Python generado automáticamente por Google Colab que facilita la configuración y despliegue de herramientas y servicios en un entorno de Google Colab. El objetivo principal es proporcionar una forma rápida y sencilla de configurar un entorno de desarrollo y ejecutar servicios web en Google Colab.
@@ -9,6 +11,42 @@ Este repositorio contiene un script de Python generado automáticamente por Goog
 El script proporciona las siguientes funcionalidades:
 
 1. **Configuración de Acceso SSH:** Instala y configura `colab_ssh` para habilitar el acceso SSH al entorno de Google Colab. Esto permite una conexión remota al entorno para realizar tareas de desarrollo y ejecución de comandos.
+
+ssh mississippi-readily-elizabeth-newsletter.trycloudflare.com
+
++ Maquina Local:
+
+  ```bash
+  Update the cloudflared package:
+    sudo apt-get upgrade cloudflared
+  Restart the service:
+
+    sudo systemctl restart cloudflared.service
+
+  > sudo nano /etc/systemd/system/cloudflared.service
+  Format:
+    GNU nano 6.2                      /etc/systemd/system/cloudflared.service                               
+    [Unit]
+    Description=Cloudflared Proxy
+    
+    [Service]
+    Type=simple
+    ExecStart=/usr/local/bin/cloudflared proxy-dns
+    Restart=on-failure
+    RestartSec=3
+    
+    [Install]
+    WantedBy=multi-user.target
+    ```
+    ```bash
+    ~/.ssh/config
+      GNU nano 6.2                              /home/erick/.ssh/config                                       
+    Host *.trycloudflare.com
+      HostName %h
+      User root
+      Port 22
+      ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
+     ```
 
 2. **Exposición de Servicios Locales con Ngrok:** Configura `ngrok` para exponer servicios locales a través de Internet. Ngrok proporciona una URL pública accesible desde cualquier lugar que redirige el tráfico a un servidor local en el entorno de Google Colab.
 
@@ -44,6 +82,9 @@ Si encuentras algún problema o tienes sugerencias para mejorar este script, no 
 
 Para mejorar la comprensión y el atractivo del proyecto, se pueden agregar gráficos web y visualizaciones que muestren información relevante, como estadísticas de rendimiento, diagramas de arquitectura, capturas de pantalla de la aplicación web desplegada, etc. Estos elementos visuales pueden incluirse en la documentación del proyecto (como este archivo README.md) para proporcionar una experiencia más completa y comprensible a los usuarios y colaboradores del proyecto.
 
+![image](https://github.com/ERICK-ZABALA/LLAMA2-INSIGHT-STAR/assets/38144008/b4d5e35b-c73a-4edb-aaa8-e2d24609d001)
+
+
 ## Partes Destacadas del CódigoLLM LLAMA2 WEBEX
 
 A continuación se destacan las partes más importantes y llamativas del código:
@@ -66,6 +107,12 @@ Exposición de Servicios Locales con Ngrok:
   && sudo apt update \
   && sudo apt install ngrok
 ```
+# Link
++ https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/update-cloudflared/
+
+
+
+
 
 
 
